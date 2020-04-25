@@ -1,0 +1,32 @@
+<!-- end_users/sign_in -->
+
+<div class="login-form">
+
+  <p class="login-text">会員の方はこちらからログイン</p>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email,value: "メールアドレス" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "inputfield" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, value: "パスワード　　" %>
+    <%= f.password_field :password, autocomplete: "current-password",class: "inputfield" %>
+  </div>
+
+  <div class="repass">
+    <%= link_to "=>パスワードを忘れた方はこちら", new_password_path(resource_name) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "ログイン", class:"btn btn-primary" %>
+  </div>
+<% end %>
+
+<div class="login-text">
+  <p>登録がお済みでない方</p>
+  <p><%= link_to "こちら",new_registration_path(resource_name) %>から新規登録を行ってください。</p>
+</div>
+
+</div>

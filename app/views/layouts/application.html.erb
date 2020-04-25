@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Naganocake</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="header-left">
+        <h1>LOGO</h1>
+      </div>
+      <div class="header-right">
+        <ul>
+            <% if admin_admin_signed_in? %>
+              <li class="header-items btn btn-light">商品一覧</li>
+              <li class="header-items btn btn-light">会員一覧</li>
+              <li class="header-items btn btn-light">注文履歴一覧</li>
+              <li class="header-items btn btn-light">ジャンル管理</li>
+              <li class="header-items"><%= link_to "ログアウト", destroy_admin_admin_session, class: "btn btn-light", method: :delete %></li>
+            <% else %>
+              <% if public_end_user_signed_in? %>
+              <p class="list-items">ようこそ、<%= current_public_end_user.last_name %>さん！</p>
+              <li class="header-items btn btn-light">マイページ</li>
+              <li class="header-items btn btn-light">商品一覧</li>
+              <li class="header-items btn btn-light">カート</li>
+              <li class="header-items"><%= link_to "ログアウト", destroy_public_end_user_session_path, class: "btn btn-light", method: :delete %></li>
+              <% else %>
+              <li class="header-items btn btn-light">商品一覧</li>
+              <li class="header-items"><%= link_to "新規登録", new_public_end_user_registration_path, class: "btn btn-light"%></li>
+              <li class="header-items"><%= link_to "ログイン", new_public_end_user_session_path, class: "btn btn-light" %></li>
+              <% end %>
+            <% end %>
+
+        </ul>
+      </div>
+    </header>
+
+    
+
+    <%= yield %>
+  </body>
+</html>
