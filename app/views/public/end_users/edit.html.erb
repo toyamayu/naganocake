@@ -1,0 +1,47 @@
+<h1>#ユーザー編集ページ</h1>
+
+<%= form_for @user, url:public_end_user_path(@user) do |f| %>
+
+    <div class="name">
+        <label for="">名前</label>
+        <label for="">（姓）</label>
+        <%= f.text_field :last_name %>
+        <label for="">（名）</label>
+        <%= f.text_field :first_name %>
+    </div>
+
+    <div class="kana">
+        <label for="">フリガナ</label>
+        <label for="">（セイ）</label>
+        <%= f.text_field :last_name_kana %>
+        <label for="">（メイ）</label>
+        <%= f.text_field :first_name_kana %>
+    </div>
+
+    <div class="email">
+        <label for="">メールアドレス</label>
+        <%= f.email_field :email %>
+    </div>
+
+    <div class="postal_code">
+        <label for="">郵便番号</label>
+        <%= f.text_field :postal_code %>
+    </div>
+
+    <div class="address">
+        <label for="">住所</label>
+        <%= f.text_field :address %>
+    </div>
+
+    <div class="phone_number">
+        <label for="">電話番号</label>
+        <%= f.telephone_field :phone_number %>
+    </div>
+
+    <div class="action">
+        <%= f.submit "変更内容を保存する", class: "btn btn-primary" %>
+        <%= link_to "退会する", public_taikai_end_user_path, class: "btn btn-primary" %>
+    </div>
+
+<% end %>
+

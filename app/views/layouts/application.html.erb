@@ -11,34 +11,34 @@
 
   <body>
 
-    <header>
-      <div class="header-left">
-        <h1>LOGO</h1>
-      </div>
-      <div class="header-right">
+    <header class="clearfix">
+      <nav class="navbar-left">
+        <h1 class="header-logo">LOGO</h1>
+      </nav>
+      <nav class="navbar-right">
         <ul>
-            <% if admin_admin_signed_in? %>
-              <li class="header-items btn btn-light">商品一覧</li>
-              <li class="header-items btn btn-light">会員一覧</li>
-              <li class="header-items btn btn-light">注文履歴一覧</li>
-              <li class="header-items btn btn-light">ジャンル管理</li>
-              <li class="header-items"><%= link_to "ログアウト", destroy_admin_admin_session, class: "btn btn-light", method: :delete %></li>
+            <% if admin_signed_in? %>
+              <li class="header-items btn btn-light" style:"float:left">商品一覧</li>
+              <li class="header-items btn btn-light" style:"float:left">会員一覧</li>
+              <li class="header-items btn btn-light" style:"float:left">注文履歴一覧</li>
+              <li class="header-items btn btn-light" style:"float:left">ジャンル管理</li>
+              <li class="header-items" style:"float:left"><%= link_to "ログアウト", destroy_admin_session, class: "btn btn-light logout", method: :delete %></li>
             <% else %>
-              <% if public_end_user_signed_in? %>
-              <p class="list-items">ようこそ、<%= current_public_end_user.last_name %>さん！</p>
-              <li class="header-items btn btn-light">マイページ</li>
-              <li class="header-items btn btn-light">商品一覧</li>
-              <li class="header-items btn btn-light">カート</li>
-              <li class="header-items"><%= link_to "ログアウト", destroy_public_end_user_session_path, class: "btn btn-light", method: :delete %></li>
+              <% if end_user_signed_in? %>
+              <p class="list-items welcome" style:"float:left">ようこそ、<%= current_end_user.last_name %>さん！</p>
+              <li class="header-items btn btn-light" style:"float:left"><%= link_to "マイページ", public_end_user_path(current_end_user.id)  %></li>
+              <li class="header-items btn btn-light" style:"float:left">商品一覧</li>
+              <li class="header-items btn btn-light" style:"float:left">カート</li>
+              <li class="header-items" style:"float:left"><%= link_to "ログアウト", destroy_end_user_session_path, class: "btn btn-light logout", method: :delete %></li>
               <% else %>
               <li class="header-items btn btn-light">商品一覧</li>
-              <li class="header-items"><%= link_to "新規登録", new_public_end_user_registration_path, class: "btn btn-light"%></li>
-              <li class="header-items"><%= link_to "ログイン", new_public_end_user_session_path, class: "btn btn-light" %></li>
+              <li class="header-items"><%= link_to "新規登録", new_end_user_registration_path, class: "btn btn-light"%></li>
+              <li class="header-items"><%= link_to "ログイン", new_end_user_session_path, class: "btn btn-light" %></li>
               <% end %>
             <% end %>
 
         </ul>
-      </div>
+      </nav>
     </header>
 
     

@@ -1,1 +1,28 @@
-<h1>ユーザー詳細画面</h1>
+<div class="main">
+    <h1>マイページ</h1>
+
+    <h2 style="display:inline-block">登録情報</h2>
+    <%= link_to "編集する", edit_public_end_user_path(current_end_user.id), class: "btn btn-primary" %>
+    <a href="" class="btn btn-primary">パスワードを変更する</a>
+
+    <div class="p-info">
+
+        <strong>氏名</strong> <%= current_end_user.last_name %><%= current_end_user.first_name %><br/>
+        <strong>カナ</strong> <%= current_end_user.last_name_kana %><%= current_end_user.first_name_kana %><br/>
+        <strong>郵便番号</strong> <%= current_end_user.postal_code %><br/>
+        <strong>住所</strong> <%= current_end_user.address %><br/>
+        <strong>電話番号</strong> <%= current_end_user.phone_number %><br/>
+        <strong>メールアドレス</strong> <%= current_end_user.email %><br/>
+
+    </div>
+
+    <div class="adrress">
+        <strong>配送先</strong> <a href="" class="btn btn-primary">一覧を見る</a>
+    </div>
+    <div class="adrress">
+        <strong>注文履歴</strong> <a href="" class="btn btn-primary">一覧を見る</a>
+    </div>
+</div>
+
+
+

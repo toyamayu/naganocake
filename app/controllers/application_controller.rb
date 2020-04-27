@@ -10,6 +10,15 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def after_sign_out_path_for
+        case
+        when Admin
+            new_admin_session_path
+        when EndUser
+            root_parh
+        end
+    end
+
     
     private
 
