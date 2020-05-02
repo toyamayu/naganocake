@@ -8,8 +8,9 @@ class EndUser < ApplicationRecord
     super && (self.is_valid == false)
   end
 
-  belongs_to :admin
   has_many :items
+
+
 
   validates :last_name, presence: true
   validates :first_name, presence: true
