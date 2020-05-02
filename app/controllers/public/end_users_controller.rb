@@ -23,6 +23,14 @@ class Public::EndUsersController < ApplicationController
     def taikai
         @user = EndUser.find(params[:id])
     end
+
+    def destroy
+        @user = EndUser.find(params[:id])
+        @user.update(is_valid: true)
+        reset_session
+        flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+        redirect_to root_path
+    end
     
     private
 
