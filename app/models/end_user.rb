@@ -8,7 +8,7 @@ class EndUser < ApplicationRecord
     super && (self.is_valid == false)
   end
 
-  has_many :items
+
 
 
 

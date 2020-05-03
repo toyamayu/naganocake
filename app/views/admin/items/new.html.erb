@@ -1,0 +1,44 @@
+<div class="main">
+    <h1>商品新規登録画面</h1>
+
+    <%= form_for @item, url: admin_items_path do |f| %>
+
+    <div class="item-image">
+
+        <%= f.attachment_field :image %>
+    </div>
+
+    <div class="item-name">
+        <%= f.label :name, value: "商品名" %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div class="item-introduction">
+        <%= f.label :introduction, value: "商品説明" %>
+        <%= f.text_area :introduction %>
+    </div>
+
+    <div class="item-genre">
+        <%= f.label :genres, value: "ジャンル" %>
+        <%= f.collection_select :genre_id, Genre.all, :id, :name, :include_blank => true %>
+ 
+    </div>
+
+    <div class="item-notax_price">
+        <%= f.label :notax_price, value: "税込価格" %>
+        <%= f.text_field :notax_price %>
+    </div>
+
+    <div class="item-status">
+        <%= f.label :status, value: "販売ステータス" %>
+        <%= f.select :is_capable,[["販売中",true],["販売停止中",false]], include_blank: "選択して下さい" %>
+    </div>
+
+    <div class="action">
+        <%= f.submit "新規登録", class: "btn btn-primary" %>
+    </div>
+    <% end %>
+
+
+
+</div>

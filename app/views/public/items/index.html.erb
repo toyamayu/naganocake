@@ -1,1 +1,14 @@
-<h1>商品一覧画面</h1>
+<div class="main">
+
+    <h1>商品一覧(全<%= @items.count %>件)</h1>
+
+    <div class="items">
+        <% @items.each do |f| %>
+            <p>____________________________________________</p>
+            <%= attachment_image_tag f, :image, :fill,150,200 %><br/>
+            <%= f.name %><br/>
+            <%= f.notax_price %><br/>
+            
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="main">
+
+    <h1>商品詳細画面</h1>
+
+    <div class="detail">
+        <%= attachment_image_tag @item, :image, :fill, 100,120 %><br/>
+
+        <label for="item-name">商品名</label><strong><%= @item.name %></strong><br/>
+        <label for="item-introduction"><strong>商品説明</label><%= @item.introduction %></strong><br/>
+        <label for="item-genre">ジャンル</label><%= @item.genre.name %><br/>
+        <label for="item-notax_price">商品価格</label><strong><%= @item.notax_price * 1.1 %>(<%= @item.notax_price %>)</strong><br/>
+        <label for="item-status">販売ステータス</label>
+        <% if @item.is_capable == true %>
+            <strong>販売中</strong><br/>
+        <% else %>
+            <strong>販売停止中</strong><br/>
+        <% end %>
+    </div>
+
+    <div class="action">
+        <%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-primary" %>
+    </div>
+
+</div>
