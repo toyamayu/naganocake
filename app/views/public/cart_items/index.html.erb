@@ -27,5 +27,6 @@
             </tbody>
         </table>
         <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
+        <%= link_to "カートを空にする",  public_cart_items_cleare_path, method: :delete, class: "btn btn-danger", data: {confirm: "カートないを削除します。よろしいですか？"}  %>
     </div>
 </div>

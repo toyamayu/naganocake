@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :end_users
     get 'end_user/:id/taikai' => 'end_users#taikai',as: 'taikai_end_user'
     put 'end_user/:id/taikai' => "end_users#destroy", as: 'end_users_destroy'
+    delete 'cart_items'=> "cart_items#cleare", as: 'cart_items_cleare'
     resources :items
     resources :cart_items
   end

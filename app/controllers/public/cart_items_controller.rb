@@ -36,6 +36,12 @@ class Public::CartItemsController < ApplicationController
         cartitem.delete
         redirect_to public_cart_items_path
     end
+    
+    def cleare
+        cartitems = CartItem.all
+        cartitems.delete_all
+        redirect_to root_path
+    end
 
     private
     def cart_params

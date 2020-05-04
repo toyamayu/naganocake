@@ -28,7 +28,7 @@
               <p class="list-items welcome" style:"float:left">ようこそ、<%= current_end_user.last_name %>さん！</p>
               <li class="header-items btn btn-light" style:"float:left"><%= link_to "マイページ", public_end_user_path(current_end_user.id)  %></li>
               <li class="header-items btn btn-light" style:"float:left"><%= link_to "商品一覧", public_items_path %></li>
-              <li class="header-items btn btn-light" style:"float:left">カート</li>
+              <li class="header-items btn btn-light" style:"float:left"><%= link_to "カート", public_cart_items_path %></li>
               <li class="header-items" style:"float:left"><%= link_to "ログアウト", destroy_end_user_session_path, class: "btn btn-light logout", method: :delete %></li>
               <% else %>
               <%= flash[:notice] %>

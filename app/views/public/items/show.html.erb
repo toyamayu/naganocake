@@ -9,7 +9,7 @@
         <div class="introduction">
             <%= @item.introduction %>
         </div>
-        <h4>¥ <%= @item.notax_price * 1.1 %>(税込)</h4>
+        <h4>¥ <%= (@item.notax_price * 1.1).round %>(税込)</h4>
     </div>
     <%= form_for @cart, url: public_cart_items_path do |f| %>
         <%= f.hidden_field :end_user_id, :value => current_end_user.id %>
