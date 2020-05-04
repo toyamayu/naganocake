@@ -25,8 +25,9 @@ Rails.application.routes.draw do
   namespace :public do
     
     resources :end_users
-    get 'end_user/:id/taikai' => 'end_users#taikai',as: 'taikai_end_user' 
+    get 'end_user/:id/taikai' => 'end_users#taikai',as: 'taikai_end_user'
     put 'end_user/:id/taikai' => "end_users#destroy", as: 'end_users_destroy'
     resources :items
+    resources :cart_items
   end
 end

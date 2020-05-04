@@ -6,7 +6,7 @@
         <% @items.each do |f| %>
             <p>____________________________________________</p>
             <%= attachment_image_tag f, :image, :fill,150,200 %><br/>
-            <%= f.name %><br/>
+            <%= link_to f.name, public_item_path(f.id) %><br/>
             <%= f.notax_price %><br/>
             
         <% end %>
