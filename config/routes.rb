@@ -28,7 +28,14 @@ Rails.application.routes.draw do
     get 'end_user/:id/taikai' => 'end_users#taikai',as: 'taikai_end_user'
     put 'end_user/:id/taikai' => "end_users#destroy", as: 'end_users_destroy'
     delete 'cart_items'=> "cart_items#cleare", as: 'cart_items_cleare'
+    
+    # orders action
+    get 'orders/check' => "orders#check", as: 'order_check'
+    post 'orders/new' => "orders#create_session"
+    get 'orders/done' => "orders#done", as: 'order_done'
+    post 'orders/done' => "orders#done"
     resources :items
     resources :cart_items
+    resources :orders
   end
 end

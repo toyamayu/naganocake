@@ -1,0 +1,28 @@
+
+[1mFrom:[0m /vagrant/naganocake/app/controllers/public/orders_controller.rb:16 Public::OrdersController#create_session:
+
+    [1;34m10[0m: [32mdef[0m [1;34mcreate_session[0m
+    [1;34m11[0m:     session[[33m:order[0m][[31m[1;31m"[0m[31mend_user_id[1;31m"[0m[31m[0m] = current_end_user.id
+    [1;34m12[0m:     session[[33m:order[0m][[31m[1;31m"[0m[31mpay_way[1;31m"[0m[31m[0m] = params[[33m:order[0m][[33m:pay_way[0m]
+    [1;34m13[0m:     binding.pry
+    [1;34m14[0m: 
+    [1;34m15[0m: 
+ => [1;34m16[0m:     [32mif[0m params[[33m:order[0m][[33m:address_option[0m] == [31m[1;31m"[0m[31m0[1;31m"[0m[31m[0m
+    [1;34m17[0m:         session[[33m:order[0m][[31m[1;31m"[0m[31maddress[1;31m"[0m[31m[0m] = current_end_user.address
+    [1;34m18[0m:         session[[33m:order[0m][[31m[1;31m"[0m[31mpostal_cod[1;31m"[0m[31m[0m] = current_end_user.postal_code
+    [1;34m19[0m:         session[[33m:order[0m][[31m[1;31m"[0m[31maddress_user_name[1;31m"[0m[31m[0m] = [31m[1;31m"[0m[31m#{current_end_user.last_name}[0m[31m #{current_end_user.first_name}[0m[31m[1;31m"[0m[31m[0m 
+    [1;34m20[0m: 
+    [1;34m21[0m:     [32melsif[0m params[[33m:order[0m][[33m:address_option[0m] == [31m[1;31m"[0m[31m1[1;31m"[0m[31m[0m
+    [1;34m22[0m:         session[[33m:order[0m][[31m[1;31m"[0m[31mpostal_code[1;31m"[0m[31m[0m] = params[[33m:order[0m][[33m:postal_code[0m]
+    [1;34m23[0m:         session[[33m:order[0m][[31m[1;31m"[0m[31maddress[1;31m"[0m[31m[0m] = params[[33m:order[0m][[33m:address[0m]
+    [1;34m24[0m:         session[[33m:order[0m][[31m[1;31m"[0m[31maddress_user_name[1;31m"[0m[31m[0m] = params[[33m:order[0m][[33m:address_user_name[0m]
+    [1;34m25[0m: 
+    [1;34m26[0m:     [32melsif[0m params[[33m:order[0m][[33m:address_option[0m] == [31m[1;31m"[0m[31m2[1;31m"[0m[31m[0m
+    [1;34m27[0m:         session[[33m:order[0m][[31m[1;31m"[0m[31mpostal_code[1;31m"[0m[31m[0m] = params[[33m:order[0m][[33m:postal_code[0m]
+    [1;34m28[0m:         session[[33m:order[0m][[31m[1;31m"[0m[31maddress[1;31m"[0m[31m[0m] = params[[33m:order[0m][[33m:address[0m]
+    [1;34m29[0m:         session[[33m:order[0m][[31m[1;31m"[0m[31maddress_user_name[1;31m"[0m[31m[0m] = params[[33m:order[0m][[33m:address_user_name[0m]
+    [1;34m30[0m:     [32mend[0m
+    [1;34m31[0m: 
+    [1;34m32[0m:     redirect_to public_order_check_path
+    [1;34m33[0m: [32mend[0m
+

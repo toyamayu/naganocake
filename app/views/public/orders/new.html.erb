@@ -1,0 +1,49 @@
+<div class="main">
+
+    <h1>注文情報入力</h1>
+
+    <%= form_for @order, url: public_orders_new_path do |f| %>
+
+        <div class="select_item">
+            <h4>支払方法</h4>
+            <% f.hidden_field :pay_way %>
+            <%= f.radio_button :pay_way,0 %>クレジットカード
+            <%= f.radio_button :pay_way,1 %>銀行振り込み
+        </div>
+
+        <div class="select_item">
+            <h4>お届け先</h4>
+            <!-- 自分の住所 -->
+            <% f.hidden_field :address_option %>
+            <div class="exit">
+            </div>
+            <!-- 登録済み -->
+            <div class="had_doen">
+                <% f.hidden_field :id %>
+                <%= f.radio_button :address_option, 1 %>  登録済みの住所</label><br>
+                <%= f.collection_select(:id, @orders, :id, :order_info, prompt: "選択してください") %>
+            </div>
+
+             <!-- 新規住所 -->
+             <div class="create">
+                <% f.hidden_field :postal_code %>
+                <% f.hidden_field :address %>
+                <% f.hidden_field :address_user_name %>
+                
+                <%= f.radio_button :address_option, 2 %>  新規住所</label><br>
+                <p>郵便番号（ハイフンなし）</p>
+                <%= f.text_field :postal_code %>
+                <p>住所</p>
+                <%= f.text_field :address %>
+                <p>宛名</p>
+                <%= f.text_field :address_user_name %>
+            </div>
+        </div>
+
+        <div class="action">
+            <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+        </div>
+
+    <% end %>
+
+</div>

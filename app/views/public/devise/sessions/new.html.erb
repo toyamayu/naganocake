@@ -8,7 +8,7 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email,value: "メールアドレス" %>
+    <%= f.label :email, value: "メールアドレス" %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "inputfield" %>
   </div>
 

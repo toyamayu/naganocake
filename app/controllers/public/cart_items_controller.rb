@@ -19,6 +19,7 @@ class Public::CartItemsController < ApplicationController
 
     def index
         @cartitems = current_end_user.cart_items
+
     end
 
     def update

@@ -12,11 +12,11 @@
   <body>
 
     <header class="clearfix">
-      <nav class="navbar-left">
-        <h1 class="header-logo">LOGO</h1>
+      <nav>
+        <h1 class=" nav navbar navbar-left header-logo">LOGO</h1>
       </nav>
-      <nav class="navbar-right">
-        <ul>
+      <nav>
+        <ul class="nav navbar navbar-right">
             <% if admin_signed_in? %>
               <li class="header-items btn btn-light" style:"float:left"><%= link_to "商品一覧", admin_items_path %></li>
               <li class="header-items btn btn-light" style:"float:left"><%= link_to "会員一覧", admin_end_users_path %></li>
