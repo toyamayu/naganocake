@@ -1,2 +1,20 @@
 ja:
-    
+    activerecord:
+    enum:
+        order_detail:
+            production_status:
+                "standby": "着手不可"
+                "redy_to_production": "製作待ち"
+                "producting": "製作中"
+                "finish": "制作完了"
+    enum:
+        order:
+            order_status:
+                "pay_wait": "入金待ち"
+                "pay_confirmation": "入金確認"
+                "creating": "製作中"
+                "delivery_redy": "発送準備中"
+                "deliveried": "発送済み"
+            pay_way:
+                "creditcard": "クレジットカード"
+                "bank": "銀行振り込み"

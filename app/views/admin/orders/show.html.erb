@@ -1,0 +1,42 @@
+<h3>注文詳細画面</h3>
+
+<h5>購入者</h5>
+<%= "#{@order.end_user.last_name} #{@order.end_user.first_name}}" %>
+<h5>配送先</h5>
+<%= "#{@order.postal_code} #{@order.address} #{@order.address_user_name}" %>
+<h5>支払い方法</h5>
+<%= @order.pay_way %>
+<h5>注文ステータス</h5>
+<%= form_for @order, url: admin_order_path(@order.id) do |f|  %>
+<%= f.select :order_status,Order.order_statuses.keys.map {|k| [I18n.t("enum.order.order_status.#{k}"), k]} %><%= f.submit "更新", class:"btn btn-primary" %>
+<% end %>
+
+
+<table style="text-align:center">
+    <thead>
+        <tr>
+            <th>商品名</th>
+            <th>単価（税込）</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th>制作ステータス</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <% @orders.each do |order| %>
+            <td><%= order.name %></td>
+            <td><%= (order.price * 1.1).round %></td>
+            <td><%= order.total_order %></td>
+            <td><%= (order.price * order.total_order * 1.1).round %></td>
+            <%= form_for order, url: admin_order_detail_path(order.id) do |f|  %>
+            <td><%= f.select :production_status,OrderDetail.production_statuses.keys.map {|k| [I18n.t("enum.order_detail.production_status.#{k}"), k]} %><%= f.submit "更新", class:"btn btn-primary" %></td>
+            <% end %>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<h5>商品合計</h5> <%= @total_price %>円
+<h5> 送料</h5> <%= 800 %>円
+<h5>請求金額合計</h5> <%= @total_price + 800 %>円

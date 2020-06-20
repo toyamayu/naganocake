@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     resources :end_users
     resources :items
     resources :genres
+    resources :orders
+    resources :order_details, only:[:update]
   end
   # namespace for public
   namespace :public do

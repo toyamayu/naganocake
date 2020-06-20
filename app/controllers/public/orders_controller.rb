@@ -3,6 +3,7 @@ class Public::OrdersController < ApplicationController
 
         session[:order] = Order.new()
         @order = Order.new
+        @order_detail = OrderDetail.new
         @orders = Order.all
 
     end
@@ -45,9 +46,13 @@ class Public::OrdersController < ApplicationController
 
     def create
         order = Order.create!(session[:order])
-        cart_item = current_end_user.cart_items
+        cart_items = current_end_user.cart_items
+        cart_items.each do |cart|
+            OrderDetail.create!(order_id: order.id,item_id: cart.item.id, name: cart.item.name, price: cart.item.notax_price, total_order: cart.amount )
+        end
+        
         session[:order].clear
-        cart_item.delete_all
+        cart_items.delete_all
         redirect_to public_order_done_path
     end
 

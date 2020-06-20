@@ -20,7 +20,7 @@
             <% if admin_signed_in? %>
               <li class="header-items btn btn-light" style:"float:left"><%= link_to "商品一覧", admin_items_path %></li>
               <li class="header-items btn btn-light" style:"float:left"><%= link_to "会員一覧", admin_end_users_path %></li>
-              <li class="header-items btn btn-light" style:"float:left">注文履歴一覧</li>
+              <li class="header-items btn btn-light" style:"float:left"><%= link_to "注文履歴一覧", admin_orders_path %></li>
               <li class="header-items btn btn-light" style:"float:left"><%= link_to "ジャンル管理", admin_genres_path %></li>
               <li class="header-items" style:"float:left"><%= link_to "ログアウト", destroy_admin_session_path, class: "btn btn-light logout", method: :delete %></li>
             <% else %>
