@@ -9,6 +9,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.integer :delivery_price
       t.integer :pay_way, default: 0
       t.integer :order_status, default: 0
+      t.integer :address_option
       t.timestamps
     end
   end
