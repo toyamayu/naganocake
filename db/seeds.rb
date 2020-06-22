@@ -19,7 +19,7 @@ Item.create!(
             name: 'ガトーショコラ',
             introduction: 'ガトーは、フランス語でケーキのことですので、チョコレートのケーキということになります。',
             notax_price: '800',
-            genre_id: '0'
+            genre_id: '1'
         },
         {
             name: 'シュークリーム',
