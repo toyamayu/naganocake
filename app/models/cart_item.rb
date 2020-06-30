@@ -6,5 +6,6 @@ class CartItem < ApplicationRecord
     validates :item_id, presence: true
     # greater_than_or_equal_to: 0 is mean x >=0
     validates :amount, presence: true, numericality: {greater_than_or_equal_to: 0}  
+    validates :amount, presence: true
 
 end

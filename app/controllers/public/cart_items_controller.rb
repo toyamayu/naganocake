@@ -28,7 +28,7 @@ class Public::CartItemsController < ApplicationController
             redirect_to public_cart_items_path
         else
             @cartitems = current_end_user.cart_items
-            render :index
+            render :index, notice: "カートのアイテムが空です"
         end
     end
 

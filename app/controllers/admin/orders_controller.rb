@@ -8,7 +8,7 @@ class Admin::OrdersController < ApplicationController
         @orders = @order.order_details 
         @total_price = 0
         @orders.each do |order|
-            @total_price += order.price * order.total_order * 1.1
+            @total_price += (order.price * order.total_order * 1.1).round
         end
     end
 

@@ -12,11 +12,12 @@
         </div>
 
         <div class="select_item">
-            <h4>お届け先</h4>
-            <!-- 自分の住所 -->
-            <% f.hidden_field :address_option %>
-            <%= f.radio_button :address_option, 0 %>  自分の住所</label><br>
-            <%= "#{current_end_user.postal_code} #{current_end_user.address} #{current_end_user.last_name} #{current_end_user.first_name}" %>
+            <div>
+                <h4>お届け先</h4>
+                <!-- 自分の住所 -->
+                <% f.hidden_field :address_option %>
+                <%= f.radio_button :address_option, 0 %>  自分の住所</label><br>
+                <%= "#{current_end_user.postal_code} #{current_end_user.address} #{current_end_user.last_name} #{current_end_user.first_name}" %>
             </div>
             <!-- 登録済み -->
             <div class="had_doen">
