@@ -6,7 +6,7 @@ class Public::OrdersController < ApplicationController
         @order_detail = OrderDetail.new
         @orders = Order.all
         unless current_end_user.cart_items.present?
-            redirect_to public_cart_items_path, notice: "カートに商品を入れてください"
+            redirect_to public_items_path, notice: "カートに商品を入れてください"
         end
 
     end

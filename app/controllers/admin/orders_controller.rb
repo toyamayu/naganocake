@@ -15,6 +15,12 @@ class Admin::OrdersController < ApplicationController
     def update
         order = Order.find(params[:id])
         order.update(order_params)
+        if order.order_status_before_type_cast == 1
+            order.order_details.each do |order_detail|
+                order_detail.production_status = 1
+                order_detail.update(detail_params)
+            end
+        end
         redirect_to admin_order_path(order)
     end
 
@@ -24,7 +30,8 @@ class Admin::OrdersController < ApplicationController
         params.require(:order).permit(:order_status)
     end
 
+
     def detail_params
-        params.require(:order_detail).permit(:production_status)
+        params.permit(:production_status)
     end
 end
