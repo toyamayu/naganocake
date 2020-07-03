@@ -5,10 +5,10 @@
 <h5>配送先</h5>
 <%= "#{@order.postal_code} #{@order.address} #{@order.address_user_name}" %>
 <h5>支払い方法</h5>
-<%= @order.pay_way %>
+<%= @order.pay_way_i18n %>
 <h5>注文ステータス</h5>
 <%= form_for @order, url: admin_order_path(@order.id) do |f|  %>
-<%= f.select :order_status,Order.order_statuses.keys.map {|k| [I18n.t("enum.order.order_status.#{k}"), k]} %><%= f.submit "更新", class:"btn btn-primary" %>
+<%= f.select :order_status,Order.order_statuses.keys.map {|k| [I18n.t("enums.order.order_status.#{k}"), k]} %><%= f.submit "更新", class:"btn btn-primary" %>
 <% end %>
 
 
@@ -30,7 +30,7 @@
             <td><%= order.total_order %></td>
             <td><%= (order.price * order.total_order * 1.1).round %></td>
             <%= form_for order, url: admin_order_detail_path(order.id) do |f|  %>
-            <td><%= f.select :production_status,OrderDetail.production_statuses.keys.map {|k| [I18n.t("enum.order_detail.production_status.#{k}"), k]} %><%= f.submit "更新", class:"btn btn-primary" %></td>
+            <td><%= f.select :production_status,OrderDetail.production_statuses.keys.map {|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]} %><%= f.submit "更新", class:"btn btn-primary" %></td>
             <% end %>
         </tr>
         <% end %>
