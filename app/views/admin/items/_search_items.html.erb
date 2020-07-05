@@ -1,0 +1,14 @@
+<table>
+  <thead>
+    <tr>
+      <th>商品</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% search_items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

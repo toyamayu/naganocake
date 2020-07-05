@@ -10,6 +10,8 @@ class Item < ApplicationRecord
     validates :notax_price, presence: true
     validates :is_capable, presence: true
 
+  
+
 
 
 end

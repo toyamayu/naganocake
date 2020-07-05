@@ -1,7 +1,16 @@
 class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
+    before_action :set_search
 
-
+      # searchメソッド
+    def set_search
+        if params[:q].blank?
+            @search = Item.ransack(params[:q])
+        else
+            @search = Item.ransack(params[:q])
+            @search_items = @search.result(distinct: true)
+        end
+    end
 
     def after_sign_in_path_for(resource)
         case resource
