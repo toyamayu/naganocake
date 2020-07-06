@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
             @search = Item.ransack(params[:q])
         else
             @search = Item.ransack(params[:q])
+            # distinct 重複をなくす
             @search_items = @search.result(distinct: true)
         end
     end
